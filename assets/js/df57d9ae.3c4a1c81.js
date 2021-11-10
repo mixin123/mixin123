@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[623],{9315:function(e){e.exports=JSON.parse('{"allTagsPath":"/mixin123/blog/tags","slug":"/mixin123/blog/tags/facebook","name":"facebook","count":1,"permalink":"/mixin123/blog/tags/facebook"}')}}]);
