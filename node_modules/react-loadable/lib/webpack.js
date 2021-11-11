@@ -1,62 +1,67 @@
 'use strict';
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var fs = require('fs');
-var path = require('path');
 var url = require('url');
 
 function buildManifest(compiler, compilation) {
   var context = compiler.options.context;
   var manifest = {};
-
   compilation.chunks.forEach(function (chunk) {
     chunk.files.forEach(function (file) {
       chunk.forEachModule(function (module) {
         var id = module.id;
-        var name = typeof module.libIdent === 'function' ? module.libIdent({ context: context }) : null;
+        var name = typeof module.libIdent === 'function' ? module.libIdent({
+          context: context
+        }) : null;
         var publicPath = url.resolve(compilation.outputOptions.publicPath || '', file);
-
         var currentModule = module;
+
         if (module.constructor.name === 'ConcatenatedModule') {
           currentModule = module.rootModule;
         }
+
         if (!manifest[currentModule.rawRequest]) {
           manifest[currentModule.rawRequest] = [];
         }
 
-        manifest[currentModule.rawRequest].push({ id: id, name: name, file: file, publicPath: publicPath });
+        manifest[currentModule.rawRequest].push({
+          id: id,
+          name: name,
+          file: file,
+          publicPath: publicPath
+        });
       });
     });
   });
-
   return manifest;
 }
 
-var ReactLoadablePlugin = function () {
-  function ReactLoadablePlugin() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    _classCallCheck(this, ReactLoadablePlugin);
+var ReactLoadablePlugin =
+/*#__PURE__*/
+function () {
+  function ReactLoadablePlugin(opts) {
+    if (opts === void 0) {
+      opts = {};
+    }
 
     this.filename = opts.filename;
   }
 
-  ReactLoadablePlugin.prototype.apply = function apply(compiler) {
+  var _proto = ReactLoadablePlugin.prototype;
+
+  _proto.apply = function apply(compiler) {
     var _this = this;
 
     compiler.plugin('emit', function (compilation, callback) {
       var manifest = buildManifest(compiler, compilation);
       var json = JSON.stringify(manifest, null, 2);
-      var outputDirectory = path.dirname(_this.filename);
-      try {
-        fs.mkdirSync(outputDirectory);
-      } catch (err) {
-        if (err.code !== 'EEXIST') {
-          throw err;
+      compilation.assets[_this.filename] = {
+        source: function source() {
+          return json;
+        },
+        size: function size() {
+          return json.length;
         }
-      }
-      fs.writeFileSync(_this.filename, json);
+      };
       callback();
     });
   };

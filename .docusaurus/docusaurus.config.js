@@ -38,12 +38,7 @@ export default {
           "type": "doc",
           "docId": "intro",
           "position": "left",
-          "label": "Tutorial"
-        },
-        {
-          "to": "/blog",
-          "label": "Blog",
-          "position": "left"
+          "label": "Mixin123"
         },
         {
           "href": "https://github.com/facebook/docusaurus",
@@ -60,8 +55,8 @@ export default {
           "title": "Docs",
           "items": [
             {
-              "label": "Tutorial",
-              "to": "/docs/intro"
+              "label": "Deatils",
+              "to": "/"
             }
           ]
         },
@@ -70,15 +65,15 @@ export default {
           "items": [
             {
               "label": "Stack Overflow",
-              "href": "https://stackoverflow.com/questions/tagged/docusaurus"
+              "to": "/"
             },
             {
               "label": "Discord",
-              "href": "https://discordapp.com/invite/docusaurus"
+              "to": "/"
             },
             {
               "label": "Twitter",
-              "href": "https://twitter.com/docusaurus"
+              "to": "/"
             }
           ]
         },
@@ -87,16 +82,16 @@ export default {
           "items": [
             {
               "label": "Blog",
-              "to": "/blog"
+              "to": "/"
             },
             {
               "label": "GitHub",
-              "href": "https://github.com/facebook/docusaurus"
+              "to": "/"
             }
           ]
         }
       ],
-      "copyright": "Copyright © 2021 My Project, Inc. Built with Docusaurus."
+      "copyright": "Copyright © 2021 Mixin123."
     },
     "prism": {
       "theme": {
@@ -307,7 +302,11 @@ export default {
       "versionPersistence": "localStorage"
     },
     "metadatas": [],
-    "hideableSidebar": false
+    "hideableSidebar": false,
+    "tableOfContents": {
+      "minHeadingLevel": 2,
+      "maxHeadingLevel": 3
+    }
   },
   "baseUrlIssueBanner": true,
   "i18n": {

@@ -3,13 +3,15 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.5.0",
+  "version": "5.5.2",
   "description": "A higher order component for loading components with promises",
   "main": "lib/index.js",
+  "types": "index.d.ts",
   "author": "James Kyle <me@thejameskyle.com>",
   "license": "MIT",
   "repository": "thejameskyle/react-loadable",
   "files": [
+    "index.d.ts",
     "babel.js",
     "webpack.js",
     "lib/**"
@@ -21,6 +23,7 @@
     "prepare": "yarn build"
   },
   "dependencies": {
+    "@types/react": "*",
     "prop-types": "^15.6.2"
   },
   "devDependencies": {

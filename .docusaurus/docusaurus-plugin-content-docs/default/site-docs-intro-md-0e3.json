@@ -2,8 +2,8 @@
   "unversionedId": "intro",
   "id": "intro",
   "isDocsHomePage": false,
-  "title": "Tutorial Intro",
-  "description": "Let's discover Docusaurus in less than 5 minutes.",
+  "title": "Mixin123",
+  "description": "我在顶呱呱（Prsdigg.com）写的文章所涉及的内容有一个原则就是，内容都是我用得到的，我需要研究的东西，或者我自己需要持续成文的内容，所以，无论有没有人看我也会写，既然写了，索性也就分享出去，万一对别人也有帮助呢？",
   "source": "@site/docs/intro.md",
   "sourceDirName": ".",
   "slug": "/intro",
@@ -13,11 +13,8 @@
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {
+    "title": "Mixin123",
     "sidebar_position": 1
   },
-  "sidebar": "tutorialSidebar",
-  "next": {
-    "title": "Create a Page",
-    "permalink": "/docs/tutorial-basics/create-a-page"
-  }
+  "sidebar": "tutorialSidebar"
 }
