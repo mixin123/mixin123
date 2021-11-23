@@ -107807,11 +107807,10 @@ p.source[data-v-1692eb37] {
 
 .mixinIDHover {
     display: none;
-    float: right;
     border: 1px solid gray;
     border-radius: 5px;
-    padding-left: 2px;
-    padding-right: 2px;
+    position: absolute;
+    z-index: auto;
 }
 
 .nav-card-module__item:hover > .mixinIDHover {
